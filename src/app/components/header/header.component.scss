@@ -1,0 +1,163 @@
+/* Estilos gerais do header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem 6rem;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-family: "Public Sans", sans-serif;
+}
+
+.logo img {
+  height: 30px;
+}
+
+.nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 2rem;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #87899c;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.nav-list li a:hover {
+  color: #31d35c;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    45deg,
+    #31d35c,
+    #28a3a7
+  ); /* Gradiente entre duas cores */
+  color: white;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  position: absolute;
+  right: 10rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.btn-primary:hover {
+  background-color: #28a745;
+}
+
+/* Estilos para o menu responsivo */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burger-icon {
+  width: 25px;
+  height: 3px;
+  background-color: #2d314d;
+  position: relative;
+  transition: 0.3s;
+}
+
+.burger-icon::before,
+.burger-icon::after {
+  content: "";
+  width: 25px;
+  height: 3px;
+  background-color: #2d314d;
+  position: absolute;
+  left: 0;
+  transition: 0.3s;
+}
+
+.burger-icon::before {
+  top: -8px;
+}
+
+.burger-icon::after {
+  top: 8px;
+}
+
+.burger-icon.open {
+  background-color: transparent;
+}
+
+.burger-icon.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.burger-icon.open::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Menu escondido para telas pequenas */
+.nav {
+  display: flex;
+}
+
+.nav.open {
+  display: block;
+}
+
+@media (max-width: 775px) {
+  header {
+    padding: 1rem 4rem;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav.open {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn-primary {
+    display: block;
+    margin-top: 1rem;
+    position: relative;
+    right: 0;
+  }
+}
